@@ -39,6 +39,12 @@ let sort_by_richest = () => {
   update_DOM()
 }
 
+//Filter millionaires only....
+let show_millionaires = () => {
+  data = data.filter((user) => user.money > 1000000)
+  update_DOM()
+}
+
 //Add new object to the data array
 let add_data = async (obj) => {
   data.push(obj)
@@ -72,6 +78,10 @@ add_user_btn.addEventListener('click', get_ran_user)
 double_btn.addEventListener('click', double_money)
 
 sort_btn.addEventListener('click', sort_by_richest)
+
+show_mllnrs_btn.addEventListener('click', show_millionaires)
+
+// Populates the page with info
 
 get_ran_user()
 get_ran_user()
