@@ -51,7 +51,6 @@ let update_DOM = (provided_data = data) => {
 let format_money = (number) => {
   return '$' + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
 }
-
 get_ran_user()
 get_ran_user()
 get_ran_user()
