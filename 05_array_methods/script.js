@@ -25,8 +25,21 @@ let get_ran_user = async () => {
   add_data(new_user)
 }
 
-//Add new object to the data array
+//Double everyone's Money
+let double_money = () => {
+  data = data.map((user) => {
+    return { ...user, money: user.money * 2 }
+  })
+  update_DOM()
+}
 
+//Sort by richest
+let sort_by_richest = () => {
+  data.sort((a, b) => b.money - a.money)
+  update_DOM()
+}
+
+//Add new object to the data array
 let add_data = async (obj) => {
   data.push(obj)
 
@@ -51,10 +64,15 @@ let update_DOM = (provided_data = data) => {
 let format_money = (number) => {
   return '$' + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
 }
-get_ran_user()
-get_ran_user()
-get_ran_user()
 
 //Event listeners
 
 add_user_btn.addEventListener('click', get_ran_user)
+
+double_btn.addEventListener('click', double_money)
+
+sort_btn.addEventListener('click', sort_by_richest)
+
+get_ran_user()
+get_ran_user()
+get_ran_user()
