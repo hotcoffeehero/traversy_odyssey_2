@@ -45,6 +45,17 @@ let show_millionaires = () => {
   update_DOM()
 }
 
+//Show everybody's wealth
+let calculate_wealth = () => {
+  const dat_paper = data.reduce((acc, user) => (acc += user.money), 0)
+
+  const dat_paper_EL = document.createElement('div')
+  dat_paper_EL.innerHTML = `<h3>Total Wealth: <strong>${format_money(
+    dat_paper
+  )}</strong></h3>`
+  main.appendChild(dat_paper_EL)
+}
+
 //Add new object to the data array
 let add_data = async (obj) => {
   data.push(obj)
@@ -80,6 +91,8 @@ double_btn.addEventListener('click', double_money)
 sort_btn.addEventListener('click', sort_by_richest)
 
 show_mllnrs_btn.addEventListener('click', show_millionaires)
+
+calc_wealth_btn.addEventListener('click', calculate_wealth)
 
 // Populates the page with info
 
